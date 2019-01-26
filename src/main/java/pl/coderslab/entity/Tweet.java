@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "tweeter_tweet")
+@Table
 public class Tweet {
 
     @Id
@@ -22,10 +22,19 @@ public class Tweet {
     @NotEmpty
     private String tweetText;
 
+
     private LocalDate created;
 
     @ManyToOne
     private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Long getId() {
         return id;
@@ -59,13 +68,6 @@ public class Tweet {
         this.created = created;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public Tweet() {
     }
@@ -77,7 +79,6 @@ public class Tweet {
                 ", title='" + title + '\'' +
                 ", tweetText='" + tweetText + '\'' +
                 ", created=" + created +
-                ", userId=" + user.getId() +
                 '}';
     }
 }

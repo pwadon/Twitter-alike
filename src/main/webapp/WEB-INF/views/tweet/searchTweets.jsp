@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>Books</h1>
+<h1>Tweets</h1>
 
 <ul>
     <c:forEach items="${tweets}" var="tweet">

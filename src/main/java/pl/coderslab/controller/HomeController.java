@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.entity.Tweet;
+import pl.coderslab.entity.User;
 import pl.coderslab.repository.TweetRepository;
 import pl.coderslab.repository.UserRepository;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,29 +21,16 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    TweetRepository tweetRepository;
-
-    @GetMapping("user/{id}/tweets")
-    public String getUserTweers(Model model, @PathVariable Long id) {
-        List<Tweet> tweets = new ArrayList<>();
-        tweets = tweetRepository.getAllByUserId(id);
-        model.addAttribute("tweets", tweets);
-        return "tweet/userTweets";
-    }
-
-//    @GetMapping("user/search-tweets")
-//    public String getUserTweers(Model model, @RequestParam String s) {
-//        List<Tweet> tweets = new ArrayList<>();
-//        tweets = tweetRepository.getTweetByString(s);
-//        model.addAttribute("tweet", tweets);
-//        return "tweet/searchTweets";
-//    }
+    private TweetRepository tweetRepository;
 
     @RequestMapping("/home")
-    public String home(){
+    public String home(Model model, HttpSession session){
+        User user = (User)session.getAttribute("user");
+        model.addAttribute("tweets", tweetRepository.findAll());
+        if ( user != null) {
+            model.addAttribute("user", user);
+            model.addAttribute("tweet", new Tweet());
+        }
         return "home/home";
     }
 }

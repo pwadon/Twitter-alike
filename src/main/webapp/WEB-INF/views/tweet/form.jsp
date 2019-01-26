@@ -23,22 +23,14 @@
 
     <form:hidden path="id" />
 
-    <form:input path="created" value="${tweet.created}" placeholder="created" cssClass="form-input"/>
-    <form:errors path="created" cssClass="alet alert-danger" element="div"/>
+    <form:hidden path="created"/>
 
     <form:input path="title" placeholder="title" cssClass="form-input"/>
     <form:errors path="title" cssClass="alet alert-danger" element="div"/>
 
     <form:input path="tweetText" placeholder="tweetText" cssClass="form-input" />
     <form:errors path="tweetText" cssClass="alet alert-danger" element="div"/>
-
-    <form:select path="user">
-        <form:option value="0" disabled="true" selected="true" label="wybierz usera"/>
-        <form:options  items="${users}" itemValue="id" itemLabel="firstName"/>
-
-    </form:select>
-    <form:errors path="user" cssClass="alet alert-danger" element="div"/>
-
+    
     <input type="submit"  class="btn btn-success">
 </form:form>
 

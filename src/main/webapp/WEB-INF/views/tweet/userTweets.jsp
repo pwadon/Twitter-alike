@@ -9,12 +9,15 @@
 <h1>User Tweets</h1>
 
 <ul>
-    <c:forEach items="${tweets}" var="tweet">
+
+    <c:forEach items="${currentUserTweets}" var="tweet">
         <li>
-          id= ${tweet.id}
-          created = ${tweet.created}
-          title = ${tweet.title}
-          text = ${tweet.tweetText}
+            id = ${tweet.id}<br>
+            text = ${tweet.tweetText}<br>
+            Date : ${tweet.created} <br>
+            Title:${tweet.title} <br>
+            User nick : ${tweet.getUser().getUsername()} <br>
+
         </li>
     </c:forEach>
 </ul>

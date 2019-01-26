@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>Books</h1>
+<h1>Users</h1>
 
 
 <ul>
@@ -15,10 +15,8 @@
         <li>
             ${user.id}
             ${user.email}
-            ${user.firstName}
-            ${user.lastName}
-                <a href="${pageContext.request.contextPath}/user/edit/${user.id}">edytuj</a>
-                <a href="${pageContext.request.contextPath}/user/del/${user.id}">usuń</a>
+            ${user.username}
+
     </c:forEach>
 </ul>
 

@@ -61,21 +61,6 @@ public class AppConfig implements WebMvcConfigurer {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
         localeResolver.setDefaultLocale(new Locale("pl", "PL"));
         return localeResolver; }
-//
-//    @Bean
-//    public AuthorConverter getAuthorConverter(){
-//    return new AuthorConverter();
-//    }
-//
-//
-//    public void addFormaters(FormatterRegistry registry){
-//        registry.addConverter(getAuthorConverter());
-//        registry.addConverter(getPublisherConverter());
-//    }
-//
-//    @Bean
-//    public PublisherConverter getPublisherConverter(){
-//        return new PublisherConverter();
-//    }
+
 
 }

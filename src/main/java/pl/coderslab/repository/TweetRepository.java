@@ -4,12 +4,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import pl.coderslab.entity.Tweet;
+import pl.coderslab.entity.User;
 
 import java.util.List;
 
 public interface TweetRepository extends JpaRepository<Tweet, Long> {
-    List<Tweet> getAllByUserId(Long UserId);
+    List<Tweet> getAllByUserId(Long id);
+    List<Tweet> getAllByUser(User user);
+    List<Tweet> getFirstByUserOrderByCreated(User user);
 
-//    @Query("Select t from Tweet where t.title like :string% ORDER BY t.created ASC ")
-//    List<Tweet> getTweetByString(@Param("string") String s);
+
 }
