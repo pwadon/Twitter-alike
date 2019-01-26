@@ -7,6 +7,7 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import pl.coderslab.converter.CommentConverter;
 import pl.coderslab.converter.LocalDateConverter;
 import pl.coderslab.converter.TweetConverter;
 import pl.coderslab.converter.UserConverter;
@@ -24,7 +25,7 @@ public class FormatterConfig implements WebMvcConfigurer {
         registry.addConverter(getTweetConverter());
         registry.addConverter(getUserConverter());
         registry.addConverter(getLocalDateConverter());
-
+        registry.addConverter(getCommentConverter());
     }
 
     @Bean
@@ -40,5 +41,10 @@ public class FormatterConfig implements WebMvcConfigurer {
     @Bean
     public LocalDateConverter getLocalDateConverter(){
         return new LocalDateConverter();
+    }
+
+    @Bean
+    public CommentConverter getCommentConverter(){
+        return new CommentConverter();
     }
 }

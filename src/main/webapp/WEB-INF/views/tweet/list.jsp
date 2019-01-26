@@ -7,8 +7,7 @@
 <body>
 
 <h1>Tweets</h1>
-<%--<a href="${pageContext.request.contextPath}/book/form">Dodaj Ksiazke</a>--%>
-<%--<a href="${pageContext.request.contextPath}/proposition/form">Dodaj propozycje ksiazki</a>--%>
+
 <ul>
     <c:forEach items="${tweets}" var="tweet">
         <li>

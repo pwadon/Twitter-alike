@@ -101,6 +101,8 @@ public class UserController {
             return "tweet/searchTweets";
         }
         else {
+            model.addAttribute("tweet", new Tweet());
+            model.addAttribute("tweets", tweetRepository.findAll());
             model.addAttribute("errorUserTweets", true);
             return "home/home";
         }
@@ -119,20 +121,20 @@ public class UserController {
         }
     }
 
-    @GetMapping("/del/{id}")
-    public String delBook(HttpServletRequest request, @PathVariable Long id){
-        User user = userRepository.findOne(id);
-        userRepository.delete(user);
-        return "redirect:"+request.getContextPath()+"/user/all";
-    }
-
-    @GetMapping("/edit/{id}")
-    public String editUser(Model model, HttpServletRequest request, @PathVariable Long id){
-        User user =  userRepository.findOne(id);
-        model.addAttribute("user", user);
-        model.addAttribute("formAction", request.getContextPath()+"/user/save");
-        return "user/form";
-    }
+//    @GetMapping("/del/{id}")
+//    public String delUser(HttpServletRequest request, @PathVariable Long id){
+//        User user = userRepository.findOne(id);
+//        userRepository.delete(user);
+//        return "redirect:"+request.getContextPath()+"/user/all";
+//    }
+//
+//    @GetMapping("/edit/{id}")
+//    public String editUser(Model model, HttpServletRequest request, @PathVariable Long id){
+//        User user =  userRepository.findOne(id);
+//        model.addAttribute("user", user);
+//        model.addAttribute("formAction", request.getContextPath()+"/user/save");
+//        return "user/form";
+//    }
 
 
 

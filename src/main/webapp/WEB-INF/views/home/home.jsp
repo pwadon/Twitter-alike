@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>HOME</title>
+
 </head>
 <body>
     <h1>Home Page</h1>
@@ -19,7 +20,7 @@
                modelAttribute="tweet"
                cssClass="container col-6" >
 
-        <%--<form:hidden path="id" />--%>
+        <form:hidden path="id" />
 
         <form:input path="title" placeholder="title" cssClass="form-input"/>
         <form:errors path="title" cssClass="alet alert-danger" element="div"/>
@@ -54,6 +55,9 @@
         <li>
             <h4>Date : ${tweet.created} Title: ${tweet.title} User nick : ${tweet.getUser().getUsername()} <a href="http://localhost:8080/tweet/${tweet.getId()}">Show Tweet</a>
                 <br> Text : ${tweet.tweetText} </h4>
+                <c:forEach items="${tweet.getComments()}" var="comment">
+                comment : ${comment.getText()} user name : ${comment.getUser().getUsername()} <br>
+                </c:forEach>
         </li>
     </c:forEach>
     </ul>

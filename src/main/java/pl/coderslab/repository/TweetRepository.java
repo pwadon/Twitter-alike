@@ -1,8 +1,7 @@
 package pl.coderslab.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+
 import pl.coderslab.entity.Tweet;
 import pl.coderslab.entity.User;
 
@@ -12,6 +11,4 @@ public interface TweetRepository extends JpaRepository<Tweet, Long> {
     List<Tweet> getAllByUserId(Long id);
     List<Tweet> getAllByUser(User user);
     List<Tweet> getFirstByUserOrderByCreated(User user);
-
-
 }

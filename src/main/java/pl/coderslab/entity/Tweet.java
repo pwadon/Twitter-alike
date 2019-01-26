@@ -5,6 +5,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -27,6 +29,9 @@ public class Tweet {
 
     @ManyToOne
     private User user;
+
+    @OneToMany(mappedBy = "tweet", fetch = FetchType.EAGER)
+    private List<Comment>  comments = new ArrayList<>();
 
     public User getUser() {
         return user;
@@ -70,6 +75,14 @@ public class Tweet {
 
 
     public Tweet() {
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override

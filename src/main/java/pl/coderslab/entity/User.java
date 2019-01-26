@@ -33,6 +33,9 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Tweet> tweets = new ArrayList<>();
 
+    @OneToMany
+    private List<Comment> comments =new ArrayList<>();
+
     public User() {
     }
 
@@ -82,6 +85,14 @@ public class User {
 
     public void setTweets(List<Tweet> tweets) {
         this.tweets = tweets;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override
