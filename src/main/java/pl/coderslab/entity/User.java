@@ -36,6 +36,11 @@ public class User {
     @OneToMany
     private List<Comment> comments =new ArrayList<>();
 
+    @OneToMany()
+    private List<Message> messages = new ArrayList<>();
+
+
+
     public User() {
     }
 
@@ -99,4 +104,29 @@ public class User {
     public String toString() {
         return "";
     }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+
+//    public List<Message> getReceived() {
+//        return received;
+//    }
+//
+//    public void setReceived(List<Message> received) {
+//        this.received = received;
+//    }
+//
+//    public List<Message> getSent() {
+//        return sent;
+//    }
+//
+//    public void setSent(List<Message> sent) {
+//        this.sent = sent;
+//    }
 }

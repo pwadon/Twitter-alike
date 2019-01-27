@@ -15,6 +15,7 @@
 
 
     <c:if test="${user != null}">
+        Add Tweet
     <form:form method="post"
                action="/tweet/add"
                modelAttribute="tweet"
@@ -37,6 +38,10 @@
         <c:if test="${twError}">
             You Have no Tweets !
         </c:if>
+
+        <a href="http://localhost:8080/message/userMessages">Show my Messages</a><br>
+        <a href="http://localhost:8080/message/sendMessage">Send a Message</a><br>
+
     </c:if>
 
 
