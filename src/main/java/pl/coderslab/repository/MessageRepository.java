@@ -7,6 +7,6 @@ import pl.coderslab.entity.User;
 import java.util.List;
 
 public interface MessageRepository extends JpaRepository<Message, Long> {
-    List<Message> getAllByReceiver(User user);
-    List<Message> getAllBySender(User user);
+    List<Message> getAllByReceiver_Id(Long id);
+    List<Message> getAllBySender_Id(Long id);
 }

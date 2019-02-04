@@ -16,7 +16,7 @@
             text = ${tweet.tweetText}<br>
             Date : ${tweet.created} <br>
             Title:${tweet.title} <br>
-            User nick : ${tweet.getUser().getUsername()} <br>
+            User nick : ${tweet.getUser().getId()} <br>
 
         </li>
     </c:forEach>

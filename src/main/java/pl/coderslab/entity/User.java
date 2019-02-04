@@ -10,15 +10,15 @@ import java.util.List;
 
 
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
-public class User {
+@Table(name = "user",uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})// name powinien byc np : cl_auth_user zebby zabezpieczyc sie przed onjection
+public class User {// jak jest przy stroingu napisane unique to niw trzeba tutaj wpisywac unique constraint
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
     @NotEmpty
-    @Column(unique = true)
+    @Column(unique = true) // wystarczy to nie trzeba tego w table
     private String username;
 
     @NotEmpty
@@ -36,9 +36,11 @@ public class User {
     @OneToMany
     private List<Comment> comments =new ArrayList<>();
 
-    @OneToMany()
-    private List<Message> messages = new ArrayList<>();
+    @OneToMany(mappedBy = "sender")
+    private List<Message> messagesSended = new ArrayList<>();
 
+    @OneToMany(mappedBy = "receiver")
+    private List<Message> messagesReceived = new ArrayList<>();
 
 
     public User() {
@@ -105,14 +107,21 @@ public class User {
         return "";
     }
 
-    public List<Message> getMessages() {
-        return messages;
+    public List<Message> getMessagesSended() {
+        return messagesSended;
     }
 
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
+    public void setMessagesSended(List<Message> messagesSended) {
+        this.messagesSended = messagesSended;
     }
 
+    public List<Message> getMessagesReceived() {
+        return messagesReceived;
+    }
+
+    public void setMessagesReceived(List<Message> messagesReceived) {
+        this.messagesReceived = messagesReceived;
+    }
 
 //    public List<Message> getReceived() {
 //        return received;

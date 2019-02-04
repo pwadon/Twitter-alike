@@ -11,7 +11,7 @@ public class Message {
     private Long id;
 
     @NotEmpty
-    private String message;
+    private String msg;
 
     private Boolean readed = false;
 
@@ -29,12 +29,12 @@ public class Message {
         this.id = id;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public Boolean getReaded() {
@@ -66,12 +66,7 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message{" +
-                "id=" + id +
-                ", message='" + message + '\'' +
-                ", readed=" + readed +
-                ", sender=" + sender +
-                ", receiver=" + receiver +
-                '}';
+        return "Message{" ;
+
     }
 }
