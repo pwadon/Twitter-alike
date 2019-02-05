@@ -15,6 +15,9 @@ public class Message {
 
     private Boolean readed = false;
 
+    @NotEmpty
+    private String title;
+
     @ManyToOne
     private  User sender;
 
@@ -62,6 +65,14 @@ public class Message {
     }
 
     public Message() {
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override

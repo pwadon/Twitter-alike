@@ -38,7 +38,7 @@
         <c:if test="${twError}">
             You Have no Tweets !
         </c:if>
-
+        <a href="http://localhost:8080/user/logOut">logOut</a><br>
         <a href="http://localhost:8080/message/userMessages">Show my Messages</a><br>
         <a href="http://localhost:8080/message/sendMessage">Send a Message</a><br>
 
@@ -52,7 +52,7 @@
         Given user has no Tweets
         </c:if>
 
-        <input type="submit"   class="btn btn-success">
+        Show given user tweets<input type="submit" class="btn btn-success">
     </form>
 
     <ul>

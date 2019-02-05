@@ -12,11 +12,11 @@
 
 <h3>Sent Messages</h3>
     <c:forEach items="${sent}" var="st">
-         text :${st.msg} receiver name : ${st.getReceiver().getUsername()}<br>
-        <a href="http://localhost:8080/message/showMsg/${st.id}">Show Msg</a><br>
+         title :${st.title} receiver name : ${st.getReceiver().getUsername()}<br>
+        <a href="http://localhost:8080/message/showMsg/${st.id}">Show Msg</a>
         <c:if test="${st.readed}">
             status : Przeczytane
-        </c:if> <br>
+        </c:if>
         <c:if test="${!st.readed}">
             status :  Nie przeczytane
         </c:if> <br>
@@ -24,7 +24,7 @@
 
 <h3>Received Messages</h3>
     <c:forEach items="${received}" var="rec">
-        text :${rec.msg} sender name : ${rec.getSender().getUsername()}<br>
+        title :${rec.title} sender name : ${rec.getSender().getUsername()}<br>
         <a href="http://localhost:8080/message/showMsg/${rec.id}">Show Msg</a><br>
 
         <c:if test="${rec.readed}">

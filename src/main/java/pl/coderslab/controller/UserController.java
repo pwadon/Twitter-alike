@@ -74,6 +74,12 @@ public class UserController {
         return "login/login";
 
     }
+    @GetMapping("/logOut")
+    private String logOut(HttpSession session, HttpServletRequest request){
+        session.removeAttribute("user");
+        return "redirect:" + request.getContextPath() + "/home";
+
+    }
     @PostMapping("/login")
     private String logUser(@RequestParam String username, @RequestParam String password, HttpSession session, Model model){
 
